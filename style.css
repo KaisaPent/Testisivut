@@ -1,3 +1,8 @@
+:root {
+    --sidebar_width: 350px; 
+}
+
+
 /* Yleinen tyyli */
 body {
     font-family: Arial, sans-serif;
@@ -9,14 +14,46 @@ body {
 .container {
     display: flex;
     width: 100%;
-    flex-direction: row-reverse; /* Siirretään sidebar oikealle */
+    flex-direction: row-reverse; /* Sidebar to right */
 }
 
 .sidebar {
-    width: 250px;
+    width: var(--sidebar_width);
     background-color: #333;
     color: white;
     padding-top: 20px;
+    text-align: center; /* Align the logo to the center */
+    display: flex; /* Lisätty, jotta sisältö on pystysuorassa */
+    flex-direction: column; /* Lisätty, jotta lista menee alaspäin */
+    height: 100vh; /* Lisätty, jotta sidebar täyttää koko näkymän korkeuden */
+}
+
+
+/* Kela logo tyyli */
+.kela-logo {
+    width: 100%;  /* Täyttää koko sivupalkin leveyden */
+    height: auto;  /* Säilyttää logon oikean mittasuhteen */
+    margin-bottom: 30px;  /* Lisää tilaa logon alapuolelle */
+    display: block;
+    margin-left: auto;
+    margin-right: auto;  /* Keskittää logon */
+}
+
+/* Tietojen lista alareunassa */
+.bottom-info {
+    margin-top: auto; /* Työntää tämän osion alareunaan */
+    padding: 1px;
+    margin-bottom: 100px; /* Lisää tilaa alareunasta */
+    text-align: center;
+    font-size: 0.9em;
+    
+}
+
+
+
+/* Poistetaan hover-efekti kaikista sidebarin linkeistä */
+.sidebar ul li:hover {
+    background-color: transparent; /* Poistetaan hover-väri */
 }
 
 .sidebar ul {
@@ -36,7 +73,7 @@ body {
 }
 
 .sidebar ul li:hover {
-    background-color: #555;
+    background-color: transparent;
 }
 
 .content {
@@ -56,11 +93,12 @@ h2 {
 p {
     font-size: 1em;
     line-height: 1.6;
+    margin-bottom: 20px;
 }
 
 /* Kuvien tyylit */
 .hero-image, .page-image {
-    width: 100%;
+    width: 20%;
     max-width: 800px;
     height: auto;
     margin-top: 20px;
@@ -104,7 +142,7 @@ p {
     }
 
     .content {
-        margin-right: 250px; /* Jätetään tilaa sidebarille */
+        margin-right: var(--sidebar_width); /* Jätetään tilaa sidebarille */
         padding: 20px;
     }
 }
