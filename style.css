@@ -9,6 +9,7 @@ body {
     margin: 0;
     padding: 0;
     display: flex;
+    flex-direction: column;
 }
 
 .container {
@@ -115,11 +116,18 @@ p {
         height: auto;
     }
 
+    /* Poistetaan lista sidebarista ja siirretään ne yläpalkkiin */
     .sidebar ul li {
-        display: inline-block;
-        width: 33.33%;
+        display: block;
+        width: 100%;
     }
 
+    /* Yläpalkin linkit mobiilissa */
+    .header {
+        width: 100%;
+    }
+
+    /* Sisältö */
     .content {
         padding: 10px;
     }
@@ -131,18 +139,60 @@ p {
     h2 {
         font-size: 1.2em;
     }
-}
 
-/* Tietokoneversio */
-@media (min-width: 769px) {
-    .sidebar {
-        position: fixed;
-        height: 100vh;
-        right: 0; /* Kiinnitetään oikeaan reunaan */
+    /* Kuvien tyylit */
+    .hero-image, .page-image {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
     }
 
-    .content {
-        margin-right: var(--sidebar_width); /* Jätetään tilaa sidebarille */
-        padding: 20px;
+    /* Alapalkki */
+    .bottom-info {
+        margin-top: 20px;
+        font-size: 0.8em;
+    }
+
+    .bottom-info ul li {
+        padding: 5px;
     }
 }
+
+/* Yläpalkki mobiiliversioon */
+.header {
+    background-color: #333;
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+}
+
+.header ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.header ul li {
+    display: inline-block;
+    margin: 0 15px;
+}
+
+.header ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2em;
+}
+
+/* Sidebar - Koko ruudun leveys mobiilissa */
+.sidebar {
+    width: 100%;
+    background-color: #333;
+    color: white;
+    padding-top: 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+
+
