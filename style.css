@@ -9,6 +9,7 @@ body {
 .container {
     display: flex;
     width: 100%;
+    flex-direction: row-reverse; /* Siirretään sidebar oikealle */
 }
 
 .sidebar {
@@ -99,10 +100,11 @@ p {
     .sidebar {
         position: fixed;
         height: 100vh;
+        right: 0; /* Kiinnitetään oikeaan reunaan */
     }
 
     .content {
-        margin-left: 250px;
+        margin-right: 250px; /* Jätetään tilaa sidebarille */
         padding: 20px;
     }
 }
