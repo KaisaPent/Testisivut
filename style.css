@@ -112,6 +112,7 @@ p {
     }
 
     .sidebar {
+        display: none; /* Poistaa sidebarin näkyvyyden mobiiliversiossa */
         width: 100%;
         height: auto;
     }
