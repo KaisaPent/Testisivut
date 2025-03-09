@@ -2,6 +2,11 @@
     --sidebar_width: 350px; 
 }
 
+html, body {
+    height: 100%; 
+    margin: 0;
+    padding: 0;
+}
 
 /* Yleinen tyyli */
 body {
@@ -10,12 +15,42 @@ body {
     padding: 0;
     display: flex;
     flex-direction: column;
+    height: 100%; 
+    
 }
 
 .container {
+    flex: 1;
     display: flex;
     width: 100%;
     flex-direction: row-reverse; /* Sidebar to right */
+}
+
+/* Yläpalkki tyyli */
+.header {
+    width: 100%;
+    background-color: #333;
+    padding: 10px 0;
+    text-align: center;
+}
+
+.header ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center; /* Keskittää linkit */
+    gap: 20px; /* Lisää väliä linkkien väliin */
+}
+
+.header ul li {
+    margin: 0;
+}
+
+.header ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1em;
 }
 
 .sidebar {
@@ -30,8 +65,8 @@ body {
 }
 
 
-/* Kela logo tyyli */
-.kela-logo {
+/* Sivupalkin logot */
+.logot-sidebar {
     width: 100%;  /* Täyttää koko sivupalkin leveyden */
     height: auto;  /* Säilyttää logon oikean mittasuhteen */
     margin-bottom: 30px;  /* Lisää tilaa logon alapuolelle */
@@ -49,7 +84,6 @@ body {
     font-size: 0.9em;
     
 }
-
 
 
 /* Poistetaan hover-efekti kaikista sidebarin linkeistä */
@@ -82,20 +116,53 @@ body {
     padding: 20px;
 }
 
+.footer {
+    margin-top: auto; /* Työntää footerin alareunaan */
+    flex-shrink: 0; /* Varmistaa, että footer ei kutistu */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    padding: 20px;
+}
+
+.footer img {
+    width: 150px;
+    height: auto;
+    
+}
+
+.footer-text {
+    flex: 1;
+    text-align: right;
+    padding-left: 20px;
+}
+
 h1 {
     font-size: 2em;
 }
 
 h2 {
     font-size: 1.5em;
-    margin-top: 20px;
+    margin-top: 2px;
 }
 
 p {
     font-size: 1em;
-    line-height: 1.6;
-    margin-bottom: 20px;
+    line-height: 1;
+    margin-bottom: 1px;
 }
+
+ul {
+    line-height: 1.6; /* Määrittelee rivivälin listan kohteille */
+    padding-left: 20px; /* Listan vasen sisennys */
+}
+
+li {
+    margin-bottom: 2px; /* Lisää väliä listan kohteiden väliin */
+}
+
 
 /* Kuvien tyylit */
 .hero-image, .page-image {
@@ -112,26 +179,27 @@ p {
     }
 
     .sidebar {
-        display: none; /* Poistaa sidebarin näkyvyyden mobiiliversiossa */
-        width: 100%;
-        height: auto;
+        display: none; /* sidebar ei näytetä mobiiliversiossa */
     }
 
-    /* Poistetaan lista sidebarista ja siirretään ne yläpalkkiin */
-    .sidebar ul li {
-        display: block;
-        width: 100%;
+    /* Headerin linkit vierekkäin mobiilissa */
+    .header ul {
+        flex-direction: row; /* Linkit vierekkäin */
+        justify-content: center; /* Linkit keskitetään */
     }
 
-    /* Yläpalkin linkit mobiilissa */
-    .header {
-        width: 100%;
+    .header ul li {
+        margin-bottom: 0; /* Poistetaan marginaali pystysuunnassa */
     }
 
-    /* Sisältö */
+    .header ul li a {
+        font-size: 1.2em; /* Suurempi fontti mobiilissa */
+    }
+
     .content {
         padding: 10px;
     }
+
 
     h1 {
         font-size: 1.5em;
@@ -141,59 +209,26 @@ p {
         font-size: 1.2em;
     }
 
-    /* Kuvien tyylit */
-    .hero-image, .page-image {
-        width: 100%;
-        max-width: 100%;
-        height: auto;
+}
+
+/* Tietokoneversio */
+@media (min-width: 769px) {
+    
+    .header {
+        display: none;
+    }
+    
+    .sidebar {
+        position: fixed;
+        height: 100vh;
+        right: 0; /* Kiinnitetään oikeaan reunaan */
     }
 
-    /* Alapalkki */
-    .bottom-info {
-        margin-top: 20px;
-        font-size: 0.8em;
+    .content {
+        margin-right: 450px; /* Jätetään tilaa sidebarille */
+        padding: 20px;
     }
 
-    .bottom-info ul li {
-        padding: 5px;
-    }
+    
 }
-
-/* Yläpalkki mobiiliversioon */
-.header {
-    background-color: #333;
-    color: white;
-    padding: 10px 0;
-    text-align: center;
-}
-
-.header ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-}
-
-.header ul li {
-    display: inline-block;
-    margin: 0 15px;
-}
-
-.header ul li a {
-    color: white;
-    text-decoration: none;
-    font-size: 1.2em;
-}
-
-/* Sidebar - Koko ruudun leveys mobiilissa */
-.sidebar {
-    width: 100%;
-    background-color: #333;
-    color: white;
-    padding-top: 20px;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-}
-
-
 
