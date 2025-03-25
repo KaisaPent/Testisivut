@@ -1,5 +1,7 @@
 :root {
-    --sidebar_width: 350px; 
+    --sidebar_width: 350px;
+    --lightblue:#68b1ff;
+    --indigo:#6610f2; 
 }
 
 html, body {
@@ -16,14 +18,13 @@ body {
     display: flex;
     flex-direction: column;
     height: 100%; 
-    
+    background-color: #6eb4ff;
 }
 
 .container {
     flex: 1;
     display: flex;
     width: 100%;
-    flex-direction: row-reverse; /* Sidebar to right */
 }
 
 /* Yläpalkki tyyli */
@@ -32,6 +33,7 @@ body {
     background-color: #333;
     padding: 10px 0;
     text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .header ul {
@@ -48,20 +50,23 @@ body {
 }
 
 .header ul li a {
-    color: white;
+    color: rgb(0, 0, 0);
     text-decoration: none;
     font-size: 1em;
 }
 
 .sidebar {
     width: var(--sidebar_width);
-    background-color: #333;
-    color: white;
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
     padding-top: 20px;
-    text-align: center; /* Align the logo to the center */
-    display: flex; /* Lisätty, jotta sisältö on pystysuorassa */
-    flex-direction: column; /* Lisätty, jotta lista menee alaspäin */
-    height: 100vh; /* Lisätty, jotta sidebar täyttää koko näkymän korkeuden */
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    position: fixed; /* Kiinnitetään vasemmalle */
+    left: 0; /* Siirretään vasempaan reunaan */
+    top: 0;
 }
 
 
@@ -69,7 +74,7 @@ body {
 .logot-sidebar {
     width: 100%;  /* Täyttää koko sivupalkin leveyden */
     height: auto;  /* Säilyttää logon oikean mittasuhteen */
-    margin-bottom: 30px;  /* Lisää tilaa logon alapuolelle */
+    margin-top: 30px;  /* Lisää tilaa logon alapuolelle */
     display: block;
     margin-left: auto;
     margin-right: auto;  /* Keskittää logon */
@@ -102,9 +107,11 @@ body {
 }
 
 .sidebar ul li a {
-    color: white;
+    color: rgb(255, 0, 0);
     text-decoration: none;
     display: block;
+    margin-bottom: 50px;
+
 }
 
 .sidebar ul li:hover {
@@ -114,6 +121,7 @@ body {
 .content {
     flex-grow: 1;
     padding: 20px;
+    margin-left: var(--sidebar_width); /* Jätetään tilaa sidebarille */
 }
 
 .footer {
@@ -180,6 +188,11 @@ li {
 
     .sidebar {
         display: none; /* sidebar ei näytetä mobiiliversiossa */
+    }
+
+    .content {
+        padding: 10px;
+        margin-left: 0 !important; /* Poistetaan vasen marginaali mobiilissa */
     }
 
     /* Headerin linkit vierekkäin mobiilissa */
