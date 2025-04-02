@@ -192,19 +192,7 @@
         
         </div>
         <div>
-                <h2>Ota yhteyttä</h2>
-            <form action="contact.php" method="post">
-            <label for="name">Nimi:</label>
-            <input type="text" id="name" name="name" required>
-            
-            <label for="email">Sähköposti:</label>
-            <input type="email" id="email" name="email" required>
-            
-            <label for="message">Viesti:</label>
-            <textarea id="message" name="message" rows="5" required></textarea>
-            
-            <button type="submit">Lähetä</button>
-        </form>
+             <iframe src="GOOGLE_FORMS_URL" width="100%" height="600"></iframe>
         </div>
         
     </div>
@@ -219,25 +207,4 @@
     </footer>
 
 </body>
-    <?php
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $name = htmlspecialchars($_POST["name"]);
-    $email = htmlspecialchars($_POST["email"]);
-    $message = htmlspecialchars($_POST["message"]);
-
-    $to = "henrik.penttilae@gmail.com"; // Vaihda omaan sähköpostiisi
-    $subject = "Yhteydenotto: $name";
-    $headers = "From: $email\r\nReply-To: $email\r\nContent-Type: text/plain; charset=UTF-8";
-    
-    $body = "Nimi: $name\nSähköposti: $email\n\nViesti:\n$message";
-
-    if (mail($to, $subject, $body, $headers)) {
-        echo "Viesti lähetetty onnistuneesti!";
-    } else {
-        echo "Viestiä ei voitu lähettää. Yritä myöhemmin uudelleen.";
-    }
-} else {
-    echo "Virheellinen pyyntö.";
-}
-?>
 </html>
